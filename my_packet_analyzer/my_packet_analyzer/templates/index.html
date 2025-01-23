@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intrusion Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <img src="{{ url_for('static', filename='nids.png') }}" alt="Network Security" style="width: 100%;">
+</head>
+
+<body>
+    <header>
+        <h1>Intrusion Detection System</h1>
+    </header>
+
+    <section id="info-section">
+        <div id="info-text">
+            <h2>Welcome to Cyber City - Where Security Gets a Makeover!</h2>
+            <p class="intro">Get ready for the VIP treatment at our Intrusion Detection System (IDS) – your network's
+                swankiest
+                bodyguard! 🎩🕵️‍♂️</p>
+            <p class="intro">Picture this: We're the Sherlock Holmes of the digital world, decoding packets, unveiling
+                secret plots,
+                and banishing cyber villains. 🔍💻</p>
+            <p class="intro">From ARP mischief to ninja-like port scans and the latest malware drama, 🔍 we're on it
+                like superheroes
+                on a mission. 💪🦸</p>
+            <p class="intro">Stats and real-time alerts? We've got them on speed dial, creating a fortress around your
+                digital
+                kingdom. 🏰✨</p>
+            <p class="intro">Stay on the cutting edge! 🚀 <b>Upload your pcap file now and witness the magic that keeps
+                    your network
+                    safe, sound, and stylish against the ever-evolving cyber cosmos.</b> 🌌🔒</p>
+        </div>
+        <div id="info-image">
+            <img src="{{ url_for('static', filename='nids2.png') }}" alt="Network Security">
+        </div>
+    </section>
+
+    <br>
+    <br>
+    <br>
+
+    <section id="dashboard">
+        <div class="container">
+            <img src="{{ url_for('static', filename='1.png') }}" class="image">
+            <div class="overlay">
+                <img src="{{ url_for('static', filename='12.png') }}" class="image">
+            </div>
+        </div>
+
+        <div class="container">
+            <img src="{{ url_for('static', filename='2.png') }}" class="image">
+            <div class="overlay">
+                <img src="{{ url_for('static', filename='13.png') }}" class="image">
+            </div>
+        </div>
+
+        <div class="container">
+            <img src="{{ url_for('static', filename='3.png') }}" class="image">
+            <div class="overlay">
+                <img src="{{ url_for('static', filename='15.png') }}" class="image">
+            </div>
+        </div>
+
+        <div class="container">
+            <img src="{{ url_for('static', filename='4.png') }}" class="image">
+            <div class="overlay">
+                <img src="{{ url_for('static', filename='16.png') }}" class="image">
+            </div>
+        </div>
+
+        <div class="container">
+            <img src="{{ url_for('static', filename='5.png') }}" class="image">
+            <div class="overlay">
+                <img src="{{ url_for('static', filename='17.png') }}" class="image">
+            </div>
+        </div>
+
+        <div class="container">
+            <img src="{{ url_for('static', filename='6.png') }}" class="image">
+            <div class="overlay">
+                <img src="{{ url_for('static', filename='14.png') }}" class="image">
+            </div>
+        </div>
+
+        <div class="container">
+            <img src="{{ url_for('static', filename='7.png') }}" class="image">
+            <div class="overlay">
+                <img src="{{ url_for('static', filename='18.png') }}" class="image">
+            </div>
+        </div>
+
+        <div class="container">
+            <img src="{{ url_for('static', filename='9.png') }}" class="image">
+            <div class="overlay">
+                <img src="{{ url_for('static', filename='20.png') }}" class="image">
+            </div>
+        </div>
+
+        <div class="container">
+            <img src="{{ url_for('static', filename='10.png') }}" class="image">
+            <div class="overlay">
+                <img src="{{ url_for('static', filename='19.png') }}" class="image">
+            </div>
+        </div>
+
+        <div class="container">
+            <img src="{{ url_for('static', filename='8.png') }}" class="image">
+            <div class="overlay">
+                <img src="{{ url_for('static', filename='11.png') }}" class="image">
+            </div>
+        </div>
+
+        
+        <br>
+
+    </section>
+
+    <br>
+    <br>
+
+
+    <section id="dashboard">
+        <h2>Let's give your pcap a VIP security check! 🕵️‍♂️</h2>
+                <form action="/" method="post" enctype="multipart/form-data" id="uploadForm" onsubmit="return analyzeFile()">
+                    <label for="uploadBtn" class="file-input-label">
+                        Choose File
+                    </label>
+                    <input type="file" name="pcapFile" id="uploadBtn" accept=".pcap" style="display: none;"
+                        onchange="displayFileName()">
+                    <span id="fileNameDisplay"></span>
+                    <button type="submit" class="file-input-label">Submit</button>
+                </form>
+
+            <br>
+
+                <section class="result-section">
+                    {{ result | safe }}
+                </section>
+
+    </section>
+
+        <br>
+        <br>
+
+    <section id="dashboard">
+        <h2>Byte-sized protection🤖: download data, laugh at intruders!🤭😂</h2>
+        <div>
+            <!-- <h2>Export Data</h2> -->
+                <form method="POST" action="/download_html" style="margin-top: 20px;">
+                    <input type="hidden" name="result_html" value="{{ result }}">
+                    <button type="submit"
+                        style="background-color: #1263e6; color: white; font-weight: bold; padding: 10px; cursor: pointer;">Export
+                        Data</button>
+                </form>
+
+        </div>
+    </section>
+
+    <br>
+    <br>
+
+    <section id="dashboard">
+        
+        <h2>Security Precautions</h2>
+        
+        <!-- LAN-Based Servers Precaution -->
+        <p style="color: #0065d1;"><strong>LAN-Based Servers:</strong> Implement strict access controls and firewall rules to
+            restrict external access. Regularly update and patch servers to address potential vulnerabilities. 🛡️</p>
+        
+        <!-- DNS Queries for Sinkholed Domains Precaution -->
+        <p style="color: #4f03ca;"><strong>DNS Queries for Sinkholed Domains:</strong> Use reputable DNS filtering services and
+            maintain a list of sinkholed domains to enhance DNS security. 🚫</p>
+        
+        <!-- ARP Cache Poisoning Attacks Precaution -->
+        <p style="color: #b80618;"><strong>ARP Cache Poisoning Attacks:</strong> Deploy ARP spoofing detection tools and network
+            segmentation. Monitor ARP tables and follow best practices for ARP security. 🕵️</p>
+        
+        <!-- Famous Worms Precaution -->
+        <p style="color: #03a028;"><strong>Famous Worms:</strong> Keep systems updated and use network-based intrusion detection
+            systems. Educate users about phishing and social engineering tactics used by worms. 🐛</p>
+        
+        <!-- Amplified Denial-of-Service Attacks Precaution -->
+        <p style="color: #a07904;"><strong>Amplified DoS Attacks:</strong> Configure DNS servers to minimize amplification.
+            Implement rate limiting and filtering mechanisms. Monitor DNS traffic for signs of amplification. ⚠️</p>
+        
+        <!-- Port Scanning Activities Precaution -->
+        <p style="color: #a82103;"><strong>Port Scanning Activities:</strong> Use intrusion detection and prevention systems.
+            Monitor and analyze network traffic. Implement strong firewall rules and consider port knocking or honeypots. 🚨</p>
+        
+        <!-- Suspicious User Agents in HTTP Requests Precaution -->
+        <p style="color: #024fa2;"><strong>Suspicious User Agents:</strong> Implement robust web application firewalls (WAFs).
+            Educate users about using secure web browsers. 🕵️‍♂️</p>
+        
+        <!-- Malware Precaution -->
+        <p style="color: #55040c;"><strong>Malware:</strong> Deploy and update antivirus software. Educate users on safe
+            practices and avoid downloading from untrusted sources. Conduct regular malware scans and maintain offline backups.
+            🦠</p>
+    </section>
+
+    <br>
+    <br>
+
+    <section id="dashboard2">
+        <div class="leftt">
+            <br>
+            <br>
+            <br>
+            <br>
+            <h3>In the dynamic world of networks, if your organization has ever faced off against the Famous Worms 🐛 or the
+            DNS Sinkholed Domains 🕳️, brace yourself for a quirky solution that’s sure to tickle your tech fancy!</h3>
+            <br>
+            <h3>🔍Just drop your commands in the form 👉, and we'll kick off a quest to find them. 🕵️‍♂️</h3>
+            <br>
+
+        
+        </div>
+        <div class="cute-section">
+            <h2 class="cute-text">Watch Out for Sneaky Worms and Mischievous Sinkholed Domains!</h2>
+
+            <form id="submissionForm" style="max-width: 400px; margin: auto;">
+                <label for="name" style="font-size: 18px; display: block; margin-bottom: 8px;">Your Name:</label>
+                <input type="text" id="name" name="name" required
+                    style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;">
+            
+                <label for="organization" style="font-size: 18px; display: block; margin-bottom: 8px;">Organization Name:</label>
+                <input type="text" id="organization" name="organization" required
+                    style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;">
+            
+                <label for="signature" style="font-size: 18px; display: block; margin-bottom: 8px;">Your Commands:</label>
+                <textarea id="signature" name="signature" rows="4" cols="50" required
+                    style="width: 100%; padding: 8px; margin-bottom: 16px; box-sizing: border-box;"></textarea>
+            
+                <button type="button" onclick="submitForm()"
+                    style="background-color: #056409; color: white; padding: 10px 15px; font-size: 16px; border: none; cursor: pointer; border-radius: 5px;">Submit</button>
+            </form>
+
+        
+ 
+        </div>
+
+    </section>
+    
+    <br>
+
+    <footer>
+        <p style="font-size: 20px; color: #f0ecec; font-family: DISPLAY; ">BHAVITHA, BHAVANA, ANJANI & SUNNY - Your
+            Digital Watchdogs! 👀</p>
+    </footer>
+
+    <script>
+        document.getElementById('result_html_input').value = `{{ result|safe }}`;
+
+        function displayFileName() {
+            const fileInput = document.getElementById('uploadBtn');
+            const fileNameDisplay = document.getElementById('fileNameDisplay');
+            fileNameDisplay.textContent = fileInput.files[0].name;
+            fileNameDisplay.style.display = 'inline';
+        }
+
+        function analyzeFile() {
+            
+            return true; 
+        }
+
+        function toggleDetails(detailsId) {
+            var details = document.getElementById(detailsId);
+
+            // Check if the details element is open
+            if (details.hasAttribute('open')) {
+                details.removeAttribute('open'); // Close the details
+            } else {
+                details.setAttribute('open', 'open'); // Open the details
+            }
+        }
+
+        function submitForm() {
+            // Check if the form is valid
+            if (document.getElementById('submissionForm').checkValidity()) {
+                // Get form values
+                var name = document.getElementById('name').value;
+                var organization = document.getElementById('organization').value;
+                var signature = document.getElementById('signature').value;
+
+                // Create a data object
+                var formData = {
+                    name: name,
+                    organization: organization,
+                    signature: signature
+                };
+
+                // Convert the data object to JSON format
+                var jsonData = JSON.stringify(formData);
+
+                // Create a Blob containing the JSON data
+                var blob = new Blob([jsonData], { type: 'application/json' });
+
+                // Create a download link
+                var link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = 'form-data.json';
+
+                // Append the link to the document
+                document.body.appendChild(link);
+
+                // Trigger the download
+                link.click();
+
+                // Remove the link from the document
+                document.body.removeChild(link);
+
+                // Optionally, reset the form after submission
+                document.getElementById('submissionForm').reset();
+            } else {
+                alert("Please fill in all required fields.");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
+
